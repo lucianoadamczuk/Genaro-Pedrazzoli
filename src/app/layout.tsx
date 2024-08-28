@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { configMetaData } from '@/configurations';
-import './globals.css';
+import '../styles/globals.css';
 import { Footer, Navbar } from '@/layouts';
 
 export const metadata: Metadata = {
