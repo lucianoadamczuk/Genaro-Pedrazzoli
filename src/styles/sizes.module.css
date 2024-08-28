@@ -1,3 +1,9 @@
+.xxxl,
+.xxl,
+.xl,
+.l {
+	font-family: var(--font-title);
+}
 .xxxl {
 	font-size: var(--xxxl);
 }
