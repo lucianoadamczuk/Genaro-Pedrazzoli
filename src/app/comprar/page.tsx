@@ -6,11 +6,14 @@ import { dataProducts } from '@/data';
 import { Grid, Header, Section } from '@/layouts';
 import { Product } from '@/types';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { Suspense, useEffect, useState } from 'react';
 import styles from './buy.module.css';
 
-export default function Page() {
+export default function Page({
+	searchParams,
+}: {
+	searchParams: { producto: string };
+}) {
 	/* ----------------- products destructuring and organization ---------------- */
 	/* --------------------------------- starts --------------------------------- */
 	const { consultings, library, routines } = dataProducts;
@@ -33,16 +36,14 @@ export default function Page() {
 	/* --------------------------- handle query params -------------------------- */
 	/* --------------------------------- starts --------------------------------- */
 	const [productFound, setProductFound] = useState<undefined | Product>();
-	const searchParams = useSearchParams();
-	const paramProduct = searchParams.get('producto');
+
 	useEffect(() => {
-		if (paramProduct) {
-			const findingProducts = products.find(
-				(product) => product.slot === paramProduct
-			);
-			setProductFound(findingProducts);
-		}
-	}, [paramProduct]);
+		const findingProducts = products.find(
+			(product) => product.slot === searchParams.producto
+		);
+		setProductFound(findingProducts);
+	}, [searchParams.producto]);
+
 	/* ---------------------------------- ends ---------------------------------- */
 
 	//content
