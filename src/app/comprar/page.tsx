@@ -39,7 +39,6 @@ export default function Page() {
 		const findingProducts = () =>
 			products.find((product) => product.slot === paramProduct);
 		setProductFound(findingProducts);
-		console.log(paramProduct);
 	}, [paramProduct]);
 	/* ---------------------------------- ends ---------------------------------- */
 

@@ -21,7 +21,7 @@ interface Props {
 		title: string;
 		text: string;
 		background: string;
-		icon: Icons;
+		icon: string;
 	}[];
 }
 export default function CarouselResponsive({ displayMedia }: Props) {
@@ -55,7 +55,7 @@ export default function CarouselResponsive({ displayMedia }: Props) {
 									title={title}
 									text={text}
 									background={background}
-									icon={icon}
+									icon={icon as Icons}
 								/>
 							</Link>
 						</SwiperSlide>
