@@ -42,7 +42,7 @@ export default function page() {
 						{Object.values(routines).map((item, index) => (
 							<article key={`routine_${index}`} className={styles.card}>
 								<div>
-									<Title color='dark' size='l' tag='h5' text={item.title} />
+									<Title color='dark' size='l' tag='h5' text={item.name} />
 
 									<Text
 										color='dark'
