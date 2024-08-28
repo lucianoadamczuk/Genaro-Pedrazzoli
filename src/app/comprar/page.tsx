@@ -36,9 +36,12 @@ export default function Page() {
 	const searchParams = useSearchParams();
 	const paramProduct = searchParams.get('producto');
 	useEffect(() => {
-		const findingProducts = () =>
-			products.find((product) => product.slot === paramProduct);
-		setProductFound(findingProducts);
+		if (paramProduct) {
+			const findingProducts = products.find(
+				(product) => product.slot === paramProduct
+			);
+			setProductFound(findingProducts);
+		}
 	}, [paramProduct]);
 	/* ---------------------------------- ends ---------------------------------- */
 
@@ -54,7 +57,7 @@ export default function Page() {
 				subtitle={header.subtitle}
 			/>
 			<Section>
-				{productFound === undefined || productFound === null ? (
+				{!productFound ? (
 					<Grid>
 						<div>
 							<Title tag='h3' color='primary' size='xl' text='Productos' />
