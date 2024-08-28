@@ -1,0 +1,42 @@
+.button {
+	width: 100%;
+	height: fit-content;
+	background-color: transparent;
+	transition-duration: var(--fast);
+
+	& > a {
+		padding: var(--space-sm);
+	}
+}
+
+.button:hover {
+	transform: scale(105%);
+	backdrop-filter: blur(20px);
+	transition-duration: var(--fast);
+}
+
+/* --------------------------------- colors --------------------------------- */
+.secondary {
+	background-color: var(--secondary);
+	color: var(--light);
+	border: 0px;
+}
+
+.light {
+	border: 2px solid var(--light);
+	color: var(--light);
+	backdrop-filter: blur(var(--blur));
+}
+
+.dark {
+	border: 2px solid var(--dark);
+	color: var(--dark);
+	backdrop-filter: blur(var(--blur));
+}
+
+@media (width > 720px) {
+	.button {
+		width: fit-content;
+		min-width: 200px;
+	}
+}

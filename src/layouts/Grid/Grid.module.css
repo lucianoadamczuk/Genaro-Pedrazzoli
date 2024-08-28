@@ -1,0 +1,12 @@
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-l);
+	place-items: center;
+}
+
+@media (width > 720px) {
+	.grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}

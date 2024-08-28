@@ -1,0 +1,25 @@
+.icon:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+.xs {
+	& > svg {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.sm {
+	& > svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.md {
+	& > svg {
+		width: 30px;
+		height: 30px;
+	}
+}

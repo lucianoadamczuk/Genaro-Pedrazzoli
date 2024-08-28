@@ -1,0 +1,19 @@
+.paragraphsContainer {
+	& > p {
+		margin-bottom: var(--space-md);
+	}
+}
+
+/* -------------------------------- centered -------------------------------- */
+.centered {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	text-align: center;
+}
+
+/* ------------------------------- highlighted ------------------------------ */
+.highlighted {
+	font-weight: bold;
+}

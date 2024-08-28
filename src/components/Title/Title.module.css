@@ -1,0 +1,10 @@
+.title {
+	color: transparent;
+	background-clip: text !important;
+	-webkit-background-clip: text !important;
+}
+
+/* -------------------------------- centered -------------------------------- */
+.centered {
+	text-align: center;
+}

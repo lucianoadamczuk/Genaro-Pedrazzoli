@@ -1,0 +1,9 @@
+.carouselResponsive {
+	padding: var(--space-l);
+
+	> .swiper-pagination {
+		> .swiper-pagination-bullet-active {
+			background-color: var(--secondary);
+		}
+	}
+}

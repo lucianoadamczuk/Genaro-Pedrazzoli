@@ -1,0 +1,15 @@
+export type Icons =
+	| 'x'
+	| 'menu'
+	| 'instagram'
+	| 'linkedIn'
+	| 'youtube'
+	| 'tikTok'
+	| 'twitch'
+	| 'buy'
+	| 'mail'
+	| 'web'
+	| 'phone'
+	| 'arrow'
+	| 'check'
+	| 'error';

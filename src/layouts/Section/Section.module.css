@@ -1,0 +1,28 @@
+.section {
+	width: 100%;
+	background-image: var(--bgMobile);
+}
+
+.contentContainer {
+	min-height: 70dvh;
+	padding: var(--space-xl) var(--space-container);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.overlay {
+	background: linear-gradient(var(--gradient-dark-transparent));
+	z-index: 1;
+}
+
+.dark {
+	background-color: var(--dark);
+}
+
+@media (width > 720px) {
+	.section {
+		background-image: var(--bgDesktop);
+	}
+}

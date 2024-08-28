@@ -1,0 +1,50 @@
+.navbar {
+	width: 100%;
+	padding: var(--space-sm) var(--space-container);
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--dark);
+	z-index: 10;
+
+	.linksContainer {
+		width: 100%;
+		height: calc(100vh - 48px);
+		position: absolute;
+		top: 48px;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: var(--space-md);
+		background-color: var(--dark-transparent);
+		backdrop-filter: blur(10px);
+		transition: left var(--fast) ease-out allow-discrete,
+			opacity var(--normal) ease-out allow-discrete;
+
+		& > a:hover {
+			opacity: 0.5;
+		}
+	}
+}
+
+@media (width > 1024px) {
+	.navbar {
+		> .mobileIcon {
+			display: none !important;
+		}
+
+		> .linksContainer {
+			width: fit-content;
+			height: fit-content;
+			position: initial;
+			flex-direction: row;
+			background-color: transparent;
+			backdrop-filter: blur(0px);
+			opacity: 1 !important;
+		}
+	}
+}

@@ -1,0 +1,22 @@
+.accordion {
+	width: 100%;
+
+	> .question {
+		padding: var(--space-md) var(--space-sm);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--space-l);
+		cursor: pointer;
+	}
+
+	.question:hover {
+		opacity: 0.8;
+	}
+
+	> .answer {
+		padding: 0 var(--space-sm);
+		overflow: hidden;
+		transition: height var(--normal) allow-discrete;
+	}
+}

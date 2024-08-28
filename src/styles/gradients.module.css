@@ -1,0 +1,15 @@
+.light {
+	background: linear-gradient(var(--gradient-light));
+}
+
+.dark {
+	background: linear-gradient(var(--gradient-dark));
+}
+
+.primary {
+	background: linear-gradient(var(--gradient-primary));
+}
+
+.secondary {
+	background: linear-gradient(var(--gradient-secondary));
+}

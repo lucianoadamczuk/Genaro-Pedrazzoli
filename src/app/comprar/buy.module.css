@@ -1,0 +1,19 @@
+.productsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+
+	& > a {
+		font-size: var(--sm);
+	}
+
+	& > a:hover {
+		color: var(--secondary);
+	}
+}
+
+.buttonsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}

@@ -1,0 +1,23 @@
+.cardsContainer {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+
+	> .card {
+		max-width: 400px;
+		padding: var(--space-md);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		gap: var(--space-sm);
+		background-color: var(--light);
+		border-radius: var(--rounded-md);
+	}
+}
+
+@media (width > 1024px) {
+	.cardsContainer {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}

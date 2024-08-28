@@ -1,0 +1,59 @@
+.header {
+	height: 90dvh;
+	background: linear-gradient(
+		to bottom,
+		var(--dark-transparent),
+		var(--darker)
+	);
+	overflow: hidden;
+
+	> .contentContainer {
+		height: 100%;
+		padding: var(--space-xl) var(--space-container);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+
+	> .bgMobile,
+	.bgDesktop,
+	.animated {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		object-fit: cover;
+		object-position: center;
+		z-index: -1;
+	}
+
+	.bgDesktop,
+	.animated {
+		display: none;
+	}
+}
+
+@media (width > 720px) {
+	.header {
+		.bgMobile {
+			display: none;
+		}
+
+		.bgDesktop,
+		.animated {
+			display: flex;
+			transition: 3s ease-out;
+			object-fit: contain;
+		}
+
+		/* the images require to be scaled with diferent percentages for a proper distribution in the window */
+		.bgDesktop {
+			scale: 120%;
+			object-fit: cover;
+		}
+
+		.animated {
+			scale: 110%;
+		}
+	}
+}

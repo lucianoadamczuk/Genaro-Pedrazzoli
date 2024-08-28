@@ -1,0 +1,27 @@
+.xxxl {
+	font-size: var(--xxxl);
+}
+
+.xxl {
+	font-size: var(--xxl);
+}
+
+.xl {
+	font-size: var(--xl);
+}
+
+.l {
+	font-size: var(--l);
+}
+
+.md {
+	font-size: var(--md);
+}
+
+.sm {
+	font-size: var(--sm);
+}
+
+.xs {
+	font-size: var(--xs);
+}

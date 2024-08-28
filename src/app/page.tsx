@@ -1,95 +1,139 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button, CarouselResponsive, List, Text, Title } from '@/components';
+import Accordion from '@/components/Accordion/Accordion';
+import { configRoutes } from '@/configurations';
+import { contentHome } from '@/contents';
+import { Grid, Header, Section } from '@/layouts';
+import ButtonsContainer from '@/layouts/ButtonsContainer/ButtonsContainer';
+import styles from './home.module.css';
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	const {
+		header,
+		intro,
+		about,
+		objetive,
+		library,
+		carousel,
+		frequentQuestions,
+	} = contentHome;
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+	return (
+		<>
+			{/* --------------------------------- header --------------------------------- */}
+			<Header
+				title={header.title}
+				subtitle={header.subtitle}
+				bgMobile={header.bgMobile}
+				bgDesktop={header.bgDesktop}
+				animated={header.animated}
+			/>
+			<main>
+				{/* ---------------------------------- intro --------------------------------- */}
+				<Section>
+					<Grid>
+						<div>
+							<Title color='dark' size='xl' tag='h3' text={intro.title} />
+							<List color='dark' display={intro.list} />
+						</div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+						<div className={styles.bicepsContainer}>
+							<div className={styles.blob}></div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+							<img
+								src='/images/home/biceps.png'
+								alt='Un biceps'
+								className={styles.biceps}
+							/>
+						</div>
+					</Grid>
+				</Section>
+				{/* ---------------------------------- about --------------------------------- */}
+				<Section bgMobile={about.bgMobile} bgDesktop={about.bgDesktop}>
+					<Grid>
+						<div>
+							<Title tag='h3' color='primary' size='xl' text={about.title} />
+							<Text
+								color='light'
+								size='md'
+								tag='p'
+								highlighted
+								text={about.paragraph}
+							/>
+						</div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+						<Button
+							href={configRoutes.about.pathname}
+							color='light'
+							text='Ver más'
+						/>
+					</Grid>
+				</Section>
+				{/* -------------------------------- objetive -------------------------------- */}
+				<Section>
+					<Grid>
+						<div>
+							<Title tag='h3' color='primary' size='xl' text={objetive.title} />
+							<Text
+								color='dark'
+								size='md'
+								tag='p'
+								highlighted
+								text={objetive.paragraph}
+							/>
+						</div>
+						<ButtonsContainer>
+							<Button
+								href={configRoutes.consultings.pathname}
+								color='secondary'
+								text={configRoutes.consultings.name}
+							/>
+							<Button
+								href={configRoutes.routines.pathname}
+								color='dark'
+								text={configRoutes.routines.name}
+							/>
+						</ButtonsContainer>
+					</Grid>
+				</Section>
+				{/* --------------------------------- library -------------------------------- */}
+				<Section bgMobile={library.bgMobile} bgDesktop={library.bgDesktop}>
+					<Grid>
+						<div>
+							<Title tag='h3' color='primary' size='xl' text={library.title} />
+							<Text
+								color='light'
+								size='md'
+								tag='p'
+								highlighted
+								text={library.paragraph}
+							/>
+						</div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+						<Button
+							href={configRoutes.library.pathname}
+							color='light'
+							text={configRoutes.library.name}
+						/>
+					</Grid>
+				</Section>
+				{/* -------------------------------- carousel -------------------------------- */}
+				<CarouselResponsive displayMedia={carousel} />
+
+				{/* --------------------------- frequent questions --------------------------- */}
+				<Section>
+					<div>
+						<Title
+							color='primary'
+							size='xl'
+							tag='h3'
+							text='Preguntas frecuentes'
+						/>
+
+						<Accordion display={frequentQuestions.questions} />
+					</div>
+				</Section>
+			</main>
+		</>
+	);
 }

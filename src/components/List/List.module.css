@@ -1,0 +1,7 @@
+.list {
+	list-style-position: inside;
+	& > li {
+		margin-bottom: var(--space-sm);
+		font-size: var(--md);
+	}
+}
