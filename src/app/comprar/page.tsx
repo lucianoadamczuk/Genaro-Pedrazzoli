@@ -7,7 +7,7 @@ import { Grid, Header, Section } from '@/layouts';
 import { Product } from '@/types';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import styles from './buy.module.css';
 
 export default function Page() {
@@ -56,67 +56,69 @@ export default function Page() {
 				title={header.title}
 				subtitle={header.subtitle}
 			/>
-			<Section>
-				{!productFound ? (
-					<Grid>
-						<div>
-							<Title tag='h3' color='primary' size='xl' text='Productos' />
-							<Text
-								color='dark'
-								size='md'
-								tag='p'
-								highlighted
-								text={[
-									'Quiero brindarle a mis clientes lo mejor de lo mejor.',
-									'Es por eso que poseo una amplia variedad de products y servicios.',
-									'¿En qué estás interesado?',
-								]}
-							/>
-						</div>
-
-						<div className={styles.productsContainer}>
-							{products.map((item) => (
-								<Link
-									key={`product_item-${item.slot}`}
-									href={`${configRoutes.buy.pathname}?producto=${item.slot}`}
-								>
-									{item.name}
-								</Link>
-							))}
-						</div>
-					</Grid>
-				) : (
-					<Grid>
-						<div>
-							<Title
-								color='primary'
-								size='xl'
-								tag='h3'
-								text={productFound?.name}
-							/>
-							{productFound.slot.includes('asesoria') ? (
-								<List
-									color='dark'
-									display={productFound.description as string[]}
-								/>
-							) : (
+			<Suspense>
+				<Section>
+					{!productFound ? (
+						<Grid>
+							<div>
+								<Title tag='h3' color='primary' size='xl' text='Productos' />
 								<Text
 									color='dark'
 									size='md'
 									tag='p'
-									text={productFound.description}
+									highlighted
+									text={[
+										'Quiero brindarle a mis clientes lo mejor de lo mejor.',
+										'Es por eso que poseo una amplia variedad de products y servicios.',
+										'¿En qué estás interesado?',
+									]}
 								/>
-							)}
-						</div>
+							</div>
 
-						<Button
-							color='dark'
-							href='/contratar'
-							text={productFound.buyingOptions}
-						/>
-					</Grid>
-				)}
-			</Section>
+							<div className={styles.productsContainer}>
+								{products.map((item) => (
+									<Link
+										key={`product_item-${item.slot}`}
+										href={`${configRoutes.buy.pathname}?producto=${item.slot}`}
+									>
+										{item.name}
+									</Link>
+								))}
+							</div>
+						</Grid>
+					) : (
+						<Grid>
+							<div>
+								<Title
+									color='primary'
+									size='xl'
+									tag='h3'
+									text={productFound?.name}
+								/>
+								{productFound.slot.includes('asesoria') ? (
+									<List
+										color='dark'
+										display={productFound.description as string[]}
+									/>
+								) : (
+									<Text
+										color='dark'
+										size='md'
+										tag='p'
+										text={productFound.description}
+									/>
+								)}
+							</div>
+
+							<Button
+								color='dark'
+								href='/contratar'
+								text={productFound.buyingOptions}
+							/>
+						</Grid>
+					)}
+				</Section>
+			</Suspense>
 		</>
 	);
 }
